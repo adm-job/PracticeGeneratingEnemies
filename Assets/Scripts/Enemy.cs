@@ -13,4 +13,14 @@ public class Enemy : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         Capsule = GetComponent<CapsuleCollider>();
     }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }
