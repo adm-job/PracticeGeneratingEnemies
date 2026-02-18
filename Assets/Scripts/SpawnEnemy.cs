@@ -40,6 +40,7 @@ public class SpawnEnemy : MonoBehaviour
     private void ReleaseEnemy(Enemy enemy)
     {
 
+        _pool.Release(enemy);
     }
 
     private IEnumerator StartCreation()
