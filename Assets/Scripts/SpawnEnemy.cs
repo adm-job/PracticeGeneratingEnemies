@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -9,7 +8,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private int _poolCapacity = 20;
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private float _repeatRate = 2f;
-    [SerializeField] private GameObject[] point;
+    [SerializeField] private GameObject[] points;
 
     private ObjectPool<Enemy> _pool;
 
@@ -57,7 +56,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private Vector3 GetRandomPoint()
     {
-        return point[Random.Range(0, point.Length)].transform.position;
+        return points[Random.Range(0, points.Length)].transform.position;
     }
 
     private Quaternion GerRandomAngle()
