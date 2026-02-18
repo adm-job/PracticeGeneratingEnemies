@@ -9,6 +9,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private int _poolCapacity = 20;
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private float _repeatRate = 2f;
+    [SerializeField] private GameObject point;
 
     private ObjectPool<Enemy> _pool;
 
@@ -29,7 +30,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void GetOnAction(Enemy enemy)
     {
-        enemy.transform.position = Vector3.zero;
+        enemy.transform.position = point.transform.position;
         enemy.transform.rotation = Quaternion.identity;
         enemy.Activate();
     }
@@ -47,6 +48,10 @@ public class SpawnEnemy : MonoBehaviour
 
     private IEnumerator StartCreation()
     {
-        yield return new WaitForSeconds(_repeatRate);
+        while (true)
+        {
+            Instantiate(_enemy);
+            yield return new WaitForSeconds(_repeatRate);
+        }
     }
 }
