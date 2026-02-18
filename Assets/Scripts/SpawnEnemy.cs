@@ -31,7 +31,7 @@ public class SpawnEnemy : MonoBehaviour
     private void GetOnAction(Enemy enemy)
     {
         enemy.transform.position = point.transform.position;
-        enemy.transform.rotation = Quaternion.identity;
+        enemy.transform.rotation = Quaternion.Euler(0, Random.Range(0f, 359f), 0);
         enemy.Activate();
     }
 
@@ -48,9 +48,14 @@ public class SpawnEnemy : MonoBehaviour
 
     private IEnumerator StartCreation()
     {
+        float minAndle = 0f;
+        float maxAndle = 360f;
+        Vector3 position = point.transform.position;
+
         while (true)
         {
-            Instantiate(_enemy);
+            Quaternion randomAngle = Quaternion.Euler(0, Random.Range(minAndle, maxAndle), 0);
+            Instantiate(_enemy, position, randomAngle);
             yield return new WaitForSeconds(_repeatRate);
         }
     }

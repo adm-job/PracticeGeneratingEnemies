@@ -23,4 +23,9 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void Update()
+    {
+        transform.position += transform.right * Time.deltaTime;
+    }
 }
