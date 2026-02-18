@@ -18,7 +18,7 @@ public class SpawnEnemy : MonoBehaviour
             (
             createFunc: () => Instantiate(_enemy),
             actionOnGet: (enemy) => GetOnAction(enemy),
-            actionOnRelease: (enemy) => enemy.Deactivate(),
+            actionOnRelease: (enemy) => ReleaseEnemy(enemy),
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
@@ -29,7 +29,9 @@ public class SpawnEnemy : MonoBehaviour
 
     private void GetOnAction(Enemy enemy)
     {
-        enemy = enemy;
+        enemy.transform.position = Vector3.zero;
+        enemy.transform.rotation = Quaternion.identity;
+        enemy.Activate();
     }
 
     private void Start()
@@ -39,7 +41,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private void ReleaseEnemy(Enemy enemy)
     {
-
+        enemy.Deactivate();
         _pool.Release(enemy);
     }
 
