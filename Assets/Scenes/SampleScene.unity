@@ -252,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 349235720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -30}
+  m_LocalPosition: {x: 0, y: 1, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -283,7 +283,7 @@ Transform:
   m_GameObject: {fileID: 563030583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 0, z: 20}
+  m_LocalPosition: {x: 30, y: 1, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 655957822}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0, z: 19.97}
+  m_LocalPosition: {x: -30, y: 1, z: 19.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -539,7 +539,10 @@ MonoBehaviour:
   _poolCapacity: 20
   _poolMaxSize: 20
   _repeatRate: 2
-  point: {fileID: 655957822}
+  point:
+  - {fileID: 655957822}
+  - {fileID: 349235720}
+  - {fileID: 563030583}
 --- !u!4 &1602042970
 Transform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private int _poolCapacity = 20;
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private float _repeatRate = 2f;
-    [SerializeField] private GameObject point;
+    [SerializeField] private GameObject[] point;
 
     private ObjectPool<Enemy> _pool;
 
@@ -25,13 +25,12 @@ public class SpawnEnemy : MonoBehaviour
             defaultCapacity: _poolCapacity,
             maxSize: _poolMaxSize
             );
-
     }
 
     private void GetOnAction(Enemy enemy)
     {
-        enemy.transform.position = point.transform.position;
-        enemy.transform.rotation = Quaternion.Euler(0, Random.Range(0f, 359f), 0);
+        enemy.transform.position = GetRandomPoint();
+        enemy.transform.rotation = GerRandomAngle();
         enemy.Activate();
     }
 
@@ -48,15 +47,24 @@ public class SpawnEnemy : MonoBehaviour
 
     private IEnumerator StartCreation()
     {
-        float minAndle = 0f;
-        float maxAndle = 360f;
-        Vector3 position = point.transform.position;
-
         while (true)
         {
-            Quaternion randomAngle = Quaternion.Euler(0, Random.Range(minAndle, maxAndle), 0);
-            Instantiate(_enemy, position, randomAngle);
+            Instantiate(_enemy, GetRandomPoint(), GerRandomAngle());
+
             yield return new WaitForSeconds(_repeatRate);
         }
+    }
+
+    private Vector3 GetRandomPoint()
+    {
+        return point[Random.Range(0, point.Length)].transform.position;
+    }
+
+    private Quaternion GerRandomAngle()
+    {
+        float minAngle = 0f;
+        float maxAngle = 360f;
+
+        return Quaternion.Euler(0, Random.Range(minAngle, maxAngle), 0);
     }
 }
