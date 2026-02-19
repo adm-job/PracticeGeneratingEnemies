@@ -236,6 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349235721}
+  - component: {fileID: 349235722}
   m_Layer: 0
   m_Name: Point_2
   m_TagString: Untagged
@@ -258,6 +259,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349235722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349235720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9390ce9e7e85da4dabae974dd4c8ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563030583
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 563030584}
+  - component: {fileID: 563030585}
   m_Layer: 0
   m_Name: Point_3
   m_TagString: Untagged
@@ -289,6 +303,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563030585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563030583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9390ce9e7e85da4dabae974dd4c8ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &655957822
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 655957823}
+  - component: {fileID: 655957824}
   m_Layer: 0
   m_Name: Point_1
   m_TagString: Untagged
@@ -320,6 +347,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &655957824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655957822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9390ce9e7e85da4dabae974dd4c8ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,10 +578,10 @@ MonoBehaviour:
   _poolCapacity: 20
   _poolMaxSize: 20
   _repeatRate: 2
-  point:
-  - {fileID: 655957822}
-  - {fileID: 349235720}
-  - {fileID: 563030583}
+  points:
+  - {fileID: 655957824}
+  - {fileID: 349235722}
+  - {fileID: 563030585}
 --- !u!4 &1602042970
 Transform:
   m_ObjectHideFlags: 0
