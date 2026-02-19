@@ -45,9 +45,8 @@ public class SpawnEnemy : MonoBehaviour
     private IEnumerator StartCreation()
     {
         WaitForSeconds _delay = new WaitForSeconds(_repeatRate);
-        bool isWork = true;
 
-        while (isWork)
+        while (enabled)
         {
             _pool.Get();
 
