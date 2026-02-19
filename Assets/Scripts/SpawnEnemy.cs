@@ -40,11 +40,13 @@ public class SpawnEnemy : MonoBehaviour
 
     private IEnumerator StartCreation()
     {
+        WaitForSeconds _delay = new WaitForSeconds(_repeatRate);
+
         while (enabled)
         {
-            Instantiate(_enemy, GetRandomPoint(), GerRandomAngle());
+            Instantiate(_enemy, GetRandomPoint(), Quaternion.identity);
 
-            yield return new WaitForSeconds(_repeatRate);
+            yield return _delay;
         }
     }
 
@@ -53,7 +55,6 @@ public class SpawnEnemy : MonoBehaviour
         enemy.Deactivate();
         _pool.Release(enemy);
     }
-
 
     private Vector3 GetRandomPoint()
     {
