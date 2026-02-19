@@ -37,13 +37,6 @@ public class SpawnEnemy : MonoBehaviour
     {
         StartCoroutine(StartCreation());
     }
-
-    private void ReturnEnemy(Enemy enemy)
-    {
-        enemy.Deactivate();
-        _pool.Release(enemy);
-    }
-
     private IEnumerator StartCreation()
     {
         while (true)
@@ -53,6 +46,13 @@ public class SpawnEnemy : MonoBehaviour
             yield return new WaitForSeconds(_repeatRate);
         }
     }
+
+    private void ReturnEnemy(Enemy enemy)
+    {
+        enemy.Deactivate();
+        _pool.Release(enemy);
+    }
+
 
     private Vector3 GetRandomPoint()
     {
