@@ -37,9 +37,10 @@ public class SpawnEnemy : MonoBehaviour
     {
         StartCoroutine(StartCreation());
     }
+
     private IEnumerator StartCreation()
     {
-        while (true)
+        while (enabled)
         {
             Instantiate(_enemy, GetRandomPoint(), GerRandomAngle());
 
