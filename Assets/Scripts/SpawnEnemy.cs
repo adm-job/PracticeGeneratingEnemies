@@ -17,8 +17,8 @@ public class SpawnEnemy : MonoBehaviour
         _pool = new ObjectPool<Enemy>
             (
             createFunc: () => Instantiate(_enemy),
-            actionOnGet: (enemy) => GetOnAction(enemy),
-            actionOnRelease: (enemy) => ReleaseEnemy(enemy),
+            actionOnGet: (enemy) => ActivatingEnemy(enemy),
+            actionOnRelease: (enemy) => ReturnEnemy(enemy),
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
@@ -26,7 +26,7 @@ public class SpawnEnemy : MonoBehaviour
             );
     }
 
-    private void GetOnAction(Enemy enemy)
+    private void ActivatingEnemy(Enemy enemy)
     {
         enemy.transform.position = GetRandomPoint();
         enemy.transform.rotation = GerRandomAngle();
@@ -38,7 +38,7 @@ public class SpawnEnemy : MonoBehaviour
         StartCoroutine(StartCreation());
     }
 
-    private void ReleaseEnemy(Enemy enemy)
+    private void ReturnEnemy(Enemy enemy)
     {
         enemy.Deactivate();
         _pool.Release(enemy);
