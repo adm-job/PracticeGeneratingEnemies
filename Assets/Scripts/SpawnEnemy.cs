@@ -30,6 +30,10 @@ public class SpawnEnemy : MonoBehaviour
     {
         enemy.transform.position = GetRandomPoint();
         enemy.transform.rotation = GerRandomAngle();
+
+        Vector3 direction = GetRandomDirection(); 
+
+        enemy.Direction(direction);
         enemy.Activate();
     }
 
@@ -41,10 +45,11 @@ public class SpawnEnemy : MonoBehaviour
     private IEnumerator StartCreation()
     {
         WaitForSeconds _delay = new WaitForSeconds(_repeatRate);
+        bool isWork = true;
 
-        while (enabled)
+        while (isWork)
         {
-            Instantiate(_enemy, GetRandomPoint(), Quaternion.identity);
+            _pool.Get();
 
             yield return _delay;
         }
@@ -67,5 +72,13 @@ public class SpawnEnemy : MonoBehaviour
         float maxAngle = 360f;
 
         return Quaternion.Euler(0, Random.Range(minAngle, maxAngle), 0);
+    }
+    
+    private Vector3 GetRandomDirection()
+    {
+        float x = Random.Range(-1f, 1f);
+        float z = Random.Range(-1f, 1f);
+
+        return new Vector3(x, 0, z).normalized;
     }
 }
