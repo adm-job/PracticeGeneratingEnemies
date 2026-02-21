@@ -31,7 +31,7 @@ public class SpawnEnemy : MonoBehaviour
         enemy.transform.position = GetRandomPoint();
         enemy.transform.rotation = GerRandomAngle();
 
-        Vector3 direction = GetRandomDirection(); 
+        Quaternion direction = GerRandomAngle(); 
 
         enemy.SetDirection(direction);
         enemy.Activate();
