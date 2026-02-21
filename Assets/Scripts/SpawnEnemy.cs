@@ -33,7 +33,7 @@ public class SpawnEnemy : MonoBehaviour
 
         Vector3 direction = GetRandomDirection(); 
 
-        enemy.Direction(direction);
+        enemy.SetDirection(direction);
         enemy.Activate();
     }
 
