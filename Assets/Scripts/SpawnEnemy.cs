@@ -18,7 +18,7 @@ public class SpawnEnemy : MonoBehaviour
             (
             createFunc: () => Instantiate(_enemy),
             actionOnGet: (enemy) => ActivatingEnemy(enemy),
-            actionOnRelease: (enemy) => ReturnEnemy(enemy),
+            actionOnRelease: (enemy) => DeactivateEnemy(enemy),
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
@@ -54,7 +54,7 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    private void ReturnEnemy(Enemy enemy)
+    private void DeactivateEnemy(Enemy enemy)
     {
         enemy.Deactivate();
         _pool.Release(enemy);
