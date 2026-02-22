@@ -1,28 +1,48 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
     private Quaternion _direction;
-    private float _rotationSpeed = 5f;
+    private float _rotationSpeed = 65f;
     private float _speed = 5f;
-
-    public void SetDirection(Quaternion direction)
-    {
-        _direction = direction;
-    }
+    private bool _isRotating = true;
+    private bool _isBlock =  true;
 
     private void Update()
     {
-        if (transform.rotation != _direction)
+        if(_isBlock)
+            return;
+
+        if (_isRotating)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, _direction, _rotationSpeed * 360f * Time.deltaTime);
+            Rotate();
         }
         else
         {
-            transform.position += transform.forward * Time.deltaTime * _speed;
+            MoveForward();
         }
     }
 
+    private void Rotate()
+    {
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            _direction,
+            _rotationSpeed  * Time.deltaTime
+        );
+
+        if (Quaternion.Angle(transform.rotation, _direction) < 0.1f)
+        {
+            transform.rotation = _direction;
+            _isRotating = false;
+        }
+    }
+
+    private void MoveForward()
+    {
+        transform.position += transform.right * _speed * Time.deltaTime;
+    }
 
     public void Activate()
     {
@@ -34,4 +54,11 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void SetDirection(Vector3 direction)
+    {
+        _direction = Quaternion.LookRotation(direction);
+
+        _isBlock = false;
+    }
 }
+
