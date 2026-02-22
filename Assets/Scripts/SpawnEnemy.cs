@@ -25,6 +25,10 @@ public class SpawnEnemy : MonoBehaviour
             maxSize: _poolMaxSize
             );
     }
+    private void Start()
+    {
+        StartCoroutine(StartCreation());
+    }
 
     private void ActivatingEnemy(Enemy enemy)
     {
@@ -35,11 +39,6 @@ public class SpawnEnemy : MonoBehaviour
 
         enemy.SetDirection(direction);
         enemy.Activate();
-    }
-
-    private void Start()
-    {
-        StartCoroutine(StartCreation());
     }
 
     private IEnumerator StartCreation()
