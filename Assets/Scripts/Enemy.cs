@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            MoveForward();
+            Move();
         }
     }
 
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(
             transform.rotation,
             _direction,
-            _rotationSpeed  * Time.deltaTime
+            _rotationSpeed * Time.deltaTime
         );
 
         if (Quaternion.Angle(transform.rotation, _direction) < 0.1f)
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void MoveForward()
+    private void Move()
     {
         transform.position += transform.right * _speed * Time.deltaTime;
     }
