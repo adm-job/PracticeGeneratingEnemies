@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     private Quaternion _direction;
-    private float _rotationSpeed = 65f;
+    private float _rotationSpeed = 85f;
     private float _speed = 5f;
     private bool _isRotating = true;
     private bool _isBlock =  true;
