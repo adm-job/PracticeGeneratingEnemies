@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private float _speed = 5f;
     private bool _isRotating = true;
     private bool _isBlock =  true;
+    private float _minAngle = 0.1f;
 
     private void Update()
     {
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour
             _rotationSpeed * Time.deltaTime
         );
 
-        if (Quaternion.Angle(transform.rotation, _direction) < 0.1f)
+        if (Quaternion.Angle(transform.rotation, _direction) < _minAngle)
         {
             transform.rotation = _direction;
             _isRotating = false;
