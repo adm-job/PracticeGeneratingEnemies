@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        transform.position += transform.right * _speed * Time.deltaTime;
+        transform.position += transform.position * _speed * Time.deltaTime;
     }
 
     public void Activate()
