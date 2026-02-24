@@ -5,23 +5,16 @@ public class Enemy : MonoBehaviour
     private Quaternion _direction;
     private float _rotationSpeed = 85f;
     private float _speed = 5f;
-    private bool _isRotating = true;
-    private bool _isBlock =  true;
+    private bool _isBlock = true;
     private float _minAngle = 0.1f;
 
     private void Update()
     {
-        if(_isBlock)
+        if (_isBlock)
             return;
 
-        if (_isRotating)
-        {
-            Rotate();
-        }
-        else
-        {
-            Move();
-        }
+        Rotate();
+        Move();
     }
 
     private void Rotate()
@@ -35,13 +28,12 @@ public class Enemy : MonoBehaviour
         if (Quaternion.Angle(transform.rotation, _direction) < _minAngle)
         {
             transform.rotation = _direction;
-            _isRotating = false;
         }
     }
 
     private void Move()
     {
-        transform.position += transform.position * _speed * Time.deltaTime;
+        transform.position += transform.forward * _speed * Time.deltaTime;
     }
 
     public void Activate()

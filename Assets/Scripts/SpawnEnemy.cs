@@ -25,6 +25,7 @@ public class SpawnEnemy : MonoBehaviour
             maxSize: _poolMaxSize
             );
     }
+
     private void Start()
     {
         StartCoroutine(StartCreation());
