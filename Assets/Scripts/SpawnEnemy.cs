@@ -18,7 +18,7 @@ public class SpawnEnemy : MonoBehaviour
             (
             createFunc: () => Instantiate(_enemy),
             actionOnGet: (enemy) => ActivatingEnemy(enemy),
-            actionOnRelease: (enemy) => DeactivateEnemy(enemy),
+            actionOnRelease: (enemy) => enemy.Deactivate(),
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
@@ -52,12 +52,6 @@ public class SpawnEnemy : MonoBehaviour
 
             yield return _delay;
         }
-    }
-
-    private void DeactivateEnemy(Enemy enemy)
-    {
-        enemy.Deactivate();
-        _pool.Release(enemy);
     }
 
     private Vector3 GetRandomPoint()

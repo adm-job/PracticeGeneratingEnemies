@@ -19,14 +19,17 @@ public class Enemy : MonoBehaviour
 
     private void Rotate()
     {
-        transform.rotation = Quaternion.RotateTowards(
+        if (Quaternion.Angle(transform.rotation, _direction) > _minAngle)
+        {
+            transform.rotation = Quaternion.RotateTowards(
             transform.rotation,
             _direction,
             _rotationSpeed * Time.deltaTime
-        );
-
-        if (Quaternion.Angle(transform.rotation, _direction) < _minAngle)
+            );
+        }
+        else
         {
+
             transform.rotation = _direction;
         }
     }
