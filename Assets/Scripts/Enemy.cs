@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-
             transform.rotation = _direction;
         }
     }
@@ -66,7 +65,7 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(_lifeTime);
 
-        Deading.Invoke(this);
+        Deading?.Invoke(this);
     }
 }
 
