@@ -662,6 +662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 970235563}
+  - component: {fileID: 970235564}
   m_Layer: 0
   m_Name: point1
   m_TagString: Untagged
@@ -684,6 +685,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 26719434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970235564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970235562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a331f8ed885274d975eeb7db8b4faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1535310413
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535310414}
+  - component: {fileID: 1535310415}
   m_Layer: 0
   m_Name: point2
   m_TagString: Untagged
@@ -715,6 +729,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 26719434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535310415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535310413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a331f8ed885274d975eeb7db8b4faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1602042968
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,14 +770,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b66f258db897e45a0c19043d187244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 1485910168320730226, guid: cccde5096ee8e294f9167decbc68bbb8, type: 3}
   _poolCapacity: 20
   _poolMaxSize: 20
   _repeatRate: 2
-  points:
+  _points:
   - {fileID: 655957824}
   - {fileID: 349235722}
   - {fileID: 563030585}
+  _targets:
+  - {fileID: 970235564}
+  - {fileID: 1535310415}
+  - {fileID: 1810020997}
+  _enemies:
+  - {fileID: 1485910168320730226, guid: 48bcd9eb9d1cb9244a10ce930b4b37c2, type: 3}
+  - {fileID: 1485910168320730226, guid: 6b293520bc9cf0a42913ffdff778f806, type: 3}
+  - {fileID: 1485910168320730226, guid: cccde5096ee8e294f9167decbc68bbb8, type: 3}
 --- !u!4 &1602042970
 Transform:
   m_ObjectHideFlags: 0
@@ -776,6 +809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810020996}
+  - component: {fileID: 1810020997}
   m_Layer: 0
   m_Name: point3
   m_TagString: Untagged
@@ -798,6 +832,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 26719434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810020997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810020995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a331f8ed885274d975eeb7db8b4faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
