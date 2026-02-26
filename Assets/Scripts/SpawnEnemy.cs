@@ -4,20 +4,22 @@ using UnityEngine.Pool;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
+    //[SerializeField] private Enemy _enemy;
     [SerializeField] private int _poolCapacity = 20;
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private float _repeatRate = 2f;
-    [SerializeField] private PointGeneration[] points;
-    [SerializeField] private Enemie≈arget[] purpose;
+    [SerializeField] private PointGeneration[] _points;
+    [SerializeField] private EnemyTarget[] _targets;
+    [SerializeField] private Enemy[] _enemies;
 
     private ObjectPool<Enemy> _pool;
+    private int index;
 
     private void Awake()
     {
         _pool = new ObjectPool<Enemy>
             (
-            createFunc: () => Instantiate(_enemy),
+            createFunc: () => CreateObject(),
             actionOnGet: (enemy) => ActivateEnemy(enemy),
             actionOnRelease: (enemy) => enemy.Deactivate(),
             actionOnDestroy: (enemy) => Destroy(enemy.gameObject),
@@ -32,10 +34,15 @@ public class SpawnEnemy : MonoBehaviour
         StartCoroutine(StartCreation());
     }
 
+    private Enemy CreateObject()
+    {
+       return Instantiate(_enemies[index]);
+    }
+
     private void ActivateEnemy(Enemy enemy)
     {
         enemy.Deading += DeactivateEnemy;
-        enemy.transform.position = GetRandomPointsStart();
+        enemy.transform.position = GetPointsStart();
 
         Vector3 direction = GetPointsFinish(); 
 
@@ -47,8 +54,11 @@ public class SpawnEnemy : MonoBehaviour
     {
         WaitForSeconds _delay = new WaitForSeconds(_repeatRate);
 
+
         while (enabled)
         {
+            index = Random.Range(0, _enemies.Length);
+
             _pool.Get();
 
             yield return _delay;
@@ -61,14 +71,13 @@ public class SpawnEnemy : MonoBehaviour
         _pool.Release(enemy);
     }
 
-    private Vector3 GetRandomPointsStart()
+    private Vector3 GetPointsStart()
     {
-        return points[Random.Range(0, points.Length)].transform.position;
+        return _points[index].transform.position;
     }
 
     private Vector3 GetPointsFinish()
     {
-        Vector2 vector = Random.onUnitSphere;
-        return new Vector3(vector.x, 0, vector.y);
+        return _targets[index].transform.position;
     }
 }
