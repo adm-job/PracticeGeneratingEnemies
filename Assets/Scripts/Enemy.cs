@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
         Move();
     }
 
-
     private void Move()
     {
         transform.position = Vector3.MoveTowards(
