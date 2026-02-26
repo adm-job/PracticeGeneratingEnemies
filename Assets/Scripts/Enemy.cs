@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private Vector3 _direction;
     private float _speed = 5f;
     private bool _isBlock = true;
-    private int _lifeTime = 15;
+    private int _lifeTime = 60;
 
     private void Update()
     {
