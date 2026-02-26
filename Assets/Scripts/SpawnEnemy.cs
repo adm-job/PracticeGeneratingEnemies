@@ -34,9 +34,9 @@ public class SpawnEnemy : MonoBehaviour
     private void ActivateEnemy(Enemy enemy)
     {
         enemy.Deading += DeactivateEnemy;
-        enemy.transform.position = GetRandomPoint();
+        enemy.transform.position = GetRandomPointsStart();
 
-        Vector3 direction = GetRandomDirection(); 
+        Vector3 direction = GetPointsFinish(); 
 
         enemy.SetDirection(direction);
         enemy.Activate();
@@ -60,15 +60,14 @@ public class SpawnEnemy : MonoBehaviour
         _pool.Release(enemy);
     }
 
-    private Vector3 GetRandomPoint()
+    private Vector3 GetRandomPointsStart()
     {
         return points[Random.Range(0, points.Length)].transform.position;
     }
 
-    private Vector3 GetRandomDirection()
+    private Vector3 GetPointsFinish()
     {
         Vector2 vector = Random.onUnitSphere;
-
         return new Vector3(vector.x, 0, vector.y);
     }
 }

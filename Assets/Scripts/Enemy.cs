@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public event Action<Enemy> Deading;
 
-    private Quaternion _direction;
+    private Vector3 _direction;
     private float _rotationSpeed = 85f;
     private float _speed = 5f;
     private bool _isBlock = true;
@@ -18,29 +18,35 @@ public class Enemy : MonoBehaviour
         if (_isBlock)
             return;
 
-        Rotate();
+        // Rotate();
         Move();
     }
 
-    private void Rotate()
-    {
-        if (Quaternion.Angle(transform.rotation, _direction) > _minAngle)
-        {
-            transform.rotation = Quaternion.RotateTowards(
-            transform.rotation,
-            _direction,
-            _rotationSpeed * Time.deltaTime
-            );
-        }
-        else
-        {
-            transform.rotation = _direction;
-        }
-    }
+    //private void Rotate()
+    //{
+    //    if (Quaternion.Angle(transform.rotation, _direction) > _minAngle)
+    //    {
+    //        transform.rotation = Quaternion.RotateTowards(
+    //        transform.rotation,
+    //        _direction,
+    //        _rotationSpeed * Time.deltaTime
+    //        );
+    //    }
+    //    else
+    //    {
+    //        transform.rotation = _direction;
+    //    }
+    //}
 
     private void Move()
     {
-        transform.position += transform.forward * _speed * Time.deltaTime;
+        //transform.position += transform.forward * _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            _direction,
+            _rotationSpeed * Time.deltaTime
+
+                );
     }
 
     public void Activate()
@@ -56,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     public void SetDirection(Vector3 direction)
     {
-        _direction = Quaternion.LookRotation(direction);
+        _direction = direction;
 
         _isBlock = false;
     }
