@@ -9,6 +9,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private float _repeatRate = 2f;
     [SerializeField] private PointGeneration[] points;
+    [SerializeField] private Enemie≈arget[] purpose;
 
     private ObjectPool<Enemy> _pool;
 
