@@ -35,7 +35,6 @@ public class SpawnEnemy : MonoBehaviour
     {
         enemy.Deading += DeactivateEnemy;
         enemy.transform.position = GetRandomPoint();
-        enemy.transform.rotation = GerRandomAngle();
 
         Vector3 direction = GetRandomDirection(); 
 
@@ -66,19 +65,8 @@ public class SpawnEnemy : MonoBehaviour
         return points[Random.Range(0, points.Length)].transform.position;
     }
 
-    private Quaternion GerRandomAngle()
-    {
-        float minAngle = 0f;
-        float maxAngle = 360f;
-
-        return Quaternion.Euler(0, Random.Range(minAngle, maxAngle), 0);
-    }
-    
     private Vector3 GetRandomDirection()
     {
-        //float x = Random.Range(-1f, 1f);
-        //float z = Random.Range(-1f, 1f);
-
         Vector2 vector = Random.onUnitSphere;
 
         return new Vector3(vector.x, 0, vector.y);
