@@ -76,9 +76,11 @@ public class SpawnEnemy : MonoBehaviour
     
     private Vector3 GetRandomDirection()
     {
-        float x = Random.Range(-1f, 1f);
-        float z = Random.Range(-1f, 1f);
+        //float x = Random.Range(-1f, 1f);
+        //float z = Random.Range(-1f, 1f);
 
-        return new Vector3(x, 0, z).normalized;
+        Vector2 vector = Random.onUnitSphere;
+
+        return new Vector3(vector.x, 0, vector.y);
     }
 }
