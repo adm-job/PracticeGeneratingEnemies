@@ -1,8 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class SpawnEnemy : MonoBehaviour
+public class SpawnEnemyBlue : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private int _poolCapacity = 20;
@@ -37,7 +38,7 @@ public class SpawnEnemy : MonoBehaviour
         enemy.Deading += DeactivateEnemy;
         enemy.transform.position = GetPointStart();
 
-        Vector3 direction = GetPointFinish(); 
+        Vector3 direction = GetPointFinish();
 
         enemy.SetDirection(direction);
         enemy.Activate();
