@@ -8,9 +8,9 @@ public class SpawnEnemyRed : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private int _poolCapacity = 20;
     [SerializeField] private int _poolMaxSize = 20;
-    [SerializeField] private float _repeatRate = 2f;
     [SerializeField] private PointGeneration _point;
     [SerializeField] private EnemyTarget _target;
+    [SerializeField] private SpawnerManager _spawnerManager;
 
     private ObjectPool<Enemy> _pool;
 
@@ -28,9 +28,13 @@ public class SpawnEnemyRed : MonoBehaviour
             );
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(StartCreation());
+        _spawnerManager.SpawnRed += StartOneEnemy;
+    }
+    private void OnDisable()
+    {
+        _spawnerManager.SpawnRed -= StartOneEnemy;
     }
 
     private void ActivateEnemy(Enemy enemy)
@@ -44,17 +48,9 @@ public class SpawnEnemyRed : MonoBehaviour
         enemy.Activate();
     }
 
-    private IEnumerator StartCreation()
+    private void StartOneEnemy()
     {
-        WaitForSeconds _delay = new WaitForSeconds(_repeatRate);
-
-
-        while (enabled)
-        {
-            _pool.Get();
-
-            yield return _delay;
-        }
+        _pool.Get();
     }
 
     private void DeactivateEnemy(Enemy enemy)
