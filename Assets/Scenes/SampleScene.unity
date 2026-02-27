@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 246101241}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 108.01959, y: 125.32173, z: 88.49779}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,9 +382,9 @@ MonoBehaviour:
   _enemy: {fileID: 7838568300276330356, guid: 48bcd9eb9d1cb9244a10ce930b4b37c2, type: 3}
   _poolCapacity: 20
   _poolMaxSize: 20
-  _repeatRate: 2
   _point: {fileID: 349235722}
   _target: {fileID: 1535310415}
+  _spawnerManager: {fileID: 1602042971}
 --- !u!1 &349235720
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ Transform:
   m_GameObject: {fileID: 385192032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 108.01959, y: 125.32173, z: 88.49779}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,9 +476,9 @@ MonoBehaviour:
   _enemy: {fileID: 6527847162038023526, guid: cccde5096ee8e294f9167decbc68bbb8, type: 3}
   _poolCapacity: 20
   _poolMaxSize: 20
-  _repeatRate: 2
   _point: {fileID: 655957824}
   _target: {fileID: 970235564}
+  _spawnerManager: {fileID: 1602042971}
 --- !u!1 &563030583
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 1117155103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 108.01959, y: 125.32173, z: 88.49779}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,9 +844,9 @@ MonoBehaviour:
   _enemy: {fileID: 9032340056309919089, guid: 6b293520bc9cf0a42913ffdff778f806, type: 3}
   _poolCapacity: 20
   _poolMaxSize: 20
-  _repeatRate: 2
   _point: {fileID: 563030585}
   _target: {fileID: 1810020997}
+  _spawnerManager: {fileID: 1602042971}
 --- !u!1 &1535310413
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1602042970}
-  - component: {fileID: 1602042969}
+  - component: {fileID: 1602042971}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -908,18 +908,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1602042969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602042968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b66f258db897e45a0c19043d187244, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1602042970
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +923,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1602042971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602042968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3642141df74bf54598aac1d94b328d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1810020995
 GameObject:
   m_ObjectHideFlags: 0
