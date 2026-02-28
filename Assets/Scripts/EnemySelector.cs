@@ -1,16 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class EnemySelector : MonoBehaviour
 {
     private int _repeatRate = 2;
     
     public event Action SpawnRed;
     public event Action SpawnGreen;
     public event Action SpawnBlue;
-
 
     private void Start()
     {
