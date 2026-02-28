@@ -10,7 +10,7 @@ public class SpawnEnemyGreen : MonoBehaviour
     [SerializeField] private int _poolMaxSize = 20;
     [SerializeField] private PointGeneration _point;
     [SerializeField] private EnemyTarget _target;
-    [SerializeField] private SpawnerManager _spawnerManager;
+    [SerializeField] private Spawner _spawnerManager;
 
     private ObjectPool<Enemy> _pool;
 

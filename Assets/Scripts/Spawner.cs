@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerManager : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
+    private int _repeatRate = 2;
+    
     public event Action SpawnRed;
     public event Action SpawnGreen;
     public event Action SpawnBlue;
 
-    private int _repeatRate = 2;
 
     private void Start()
     {
