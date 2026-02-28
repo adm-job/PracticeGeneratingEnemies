@@ -1,18 +1,18 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class SpawnEnemy : MonoBehaviour
+public abstract class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
-    [SerializeField] private int _poolCapacity = 20;
-    [SerializeField] private int _poolMaxSize = 20;
-    [SerializeField] private PointGeneration _point;
-    [SerializeField] private EnemyTarget _target;
-    [SerializeField] private EnemySelector _enemySelector;
+    [SerializeField] protected Enemy _enemy;
+    [SerializeField] protected int _poolCapacity = 20;
+    [SerializeField] protected int _poolMaxSize = 20;
+    [SerializeField] protected PointGeneration _point;
+    [SerializeField] protected EnemyTarget _target;
+    [SerializeField] protected EnemySelector _enemySelector;
 
-    private ObjectPool<Enemy> _pool;
+    protected ObjectPool<Enemy> _pool;
 
-    private void Awake()
+    protected void Awake()
     {
         _pool = new ObjectPool<Enemy>
             (
@@ -26,16 +26,14 @@ public class SpawnEnemy : MonoBehaviour
             );
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
-        _enemySelector.SpawnRed += StartOneEnemy;
     }
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        _enemySelector.SpawnRed -= StartOneEnemy;
     }
 
-    private void ActivateEnemy(Enemy enemy)
+    protected void ActivateEnemy(Enemy enemy)
     {
         enemy.Deading += DeactivateEnemy;
         enemy.transform.position = GetPointStart();
@@ -46,23 +44,23 @@ public class SpawnEnemy : MonoBehaviour
         enemy.Activate();
     }
 
-    private void StartOneEnemy()
+    protected void StartOneEnemy()
     {
         _pool.Get();
     }
 
-    private void DeactivateEnemy(Enemy enemy)
+    protected void DeactivateEnemy(Enemy enemy)
     {
         enemy.Deading -= DeactivateEnemy;
         _pool.Release(enemy);
     }
 
-    private Vector3 GetPointStart()
+    protected Vector3 GetPointStart()
     {
         return _point.transform.position;
     }
 
-    private Vector3 GetPointFinish()
+    protected Vector3 GetPointFinish()
     {
         return _target.transform.position;
     }

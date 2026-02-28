@@ -23,7 +23,7 @@ public class EnemySelector : MonoBehaviour
 
         while (enabled)
         {
-            numberSpawner = UnityEngine.Random.Range(0, maxSpawners );
+            numberSpawner = UnityEngine.Random.Range(0, maxSpawners);
 
             switch (numberSpawner)
             {

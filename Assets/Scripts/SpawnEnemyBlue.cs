@@ -2,6 +2,18 @@ using UnityEngine;
 
 public class SpawnEnemyBlue : SpawnEnemy
 {
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _enemySelector.SpawnBlue += StartOneEnemy;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        _enemySelector.SpawnBlue -= StartOneEnemy;
+    }
+
     //[SerializeField] private Enemy _enemy;
     //[SerializeField] private int _poolCapacity = 20;
     //[SerializeField] private int _poolMaxSize = 20;
