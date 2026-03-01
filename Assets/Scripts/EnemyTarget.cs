@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyTarget : MonoBehaviour
 {
     [SerializeField] private Transform[] _points;
-    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float _speed = 10000f;
 
     private int _currentPointIndex = 0;
 
@@ -16,22 +16,27 @@ public class EnemyTarget : MonoBehaviour
 
     private IEnumerator MovePoint()
     {
-        yield return new WaitForSeconds(2);
 
-        Transform targetPoint = _points[_currentPointIndex];
-
-        Vector3 direction = targetPoint.position - transform.position;
-        direction.y = 0;
-
-        transform.position = Vector3.MoveTowards(
-        transform.position,
-        _points[_currentPointIndex].position,
-        _speed * Time.deltaTime
-    );
-
-        if (Vector3.Distance(transform.position, _points[_currentPointIndex].position) < 0.1f)
+        while (enabled)
         {
+            Transform targetPoint = _points[_currentPointIndex];
+            float distance = 0.1f;
+
+            while (Vector3.Distance(transform.position, targetPoint.position) > distance)
+            {
+                transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPoint.position,
+                _speed * Time.deltaTime
+                );
+
+                yield return null;
+            }
+
             _currentPointIndex = (_currentPointIndex + 1) % _points.Length;
+
+
+            yield return new WaitForSeconds(2f);
         }
     }
 
