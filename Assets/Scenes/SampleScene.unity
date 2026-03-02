@@ -870,6 +870,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d4a280527a99e4e8bb712b54f23cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner:
+  - {fileID: 385192034}
+  - {fileID: 246101243}
+  - {fileID: 1117155105}
 --- !u!1 &1709377715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,18 +1074,18 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 6256072}
-  - {fileID: 655957823}
-  - {fileID: 349235721}
-  - {fileID: 563030584}
   - {fileID: 1602042970}
+  - {fileID: 2055050665}
   - {fileID: 385192033}
   - {fileID: 246101242}
   - {fileID: 1117155104}
+  - {fileID: 655957823}
+  - {fileID: 349235721}
+  - {fileID: 563030584}
+  - {fileID: 970235563}
+  - {fileID: 1535310414}
+  - {fileID: 1810020996}
   - {fileID: 2087194569}
   - {fileID: 1951564761}
   - {fileID: 59536262}
   - {fileID: 1709377716}
-  - {fileID: 970235563}
-  - {fileID: 1535310414}
-  - {fileID: 1810020996}
-  - {fileID: 2055050665}
