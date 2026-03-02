@@ -22,7 +22,7 @@ public class EnemyTarget : MonoBehaviour
             Transform targetPoint = _points[_currentPointIndex];
             float distance = 0.1f;
 
-            while (Vector3.Distance(transform.position, targetPoint.position) > distance)
+            while ((targetPoint.position - transform.position).sqrMagnitude > distance * distance)
             {
                 transform.position = Vector3.MoveTowards(
                 transform.position,
@@ -34,7 +34,6 @@ public class EnemyTarget : MonoBehaviour
             }
 
             _currentPointIndex = (_currentPointIndex + 1) % _points.Length;
-
 
             yield return new WaitForSeconds(2f);
         }

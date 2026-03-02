@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public abstract class SpawnEnemy : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] protected Enemy _enemy;
     [SerializeField] protected int _poolCapacity = 20;
@@ -26,12 +26,14 @@ public abstract class SpawnEnemy : MonoBehaviour
             );
     }
 
-    protected virtual void OnEnable()
-    {
-    }
-    protected virtual void OnDisable()
-    {
-    }
+    //protected virtual void OnEnable()
+    //{
+    //    _enemySelector.Generating += StartOneEnemy;
+    //}
+    //protected virtual void OnDisable()
+    //{
+    //    _enemySelector.Generating -= StartOneEnemy;
+    //}
 
     protected void ActivateEnemy(Enemy enemy)
     {
@@ -44,7 +46,7 @@ public abstract class SpawnEnemy : MonoBehaviour
         enemy.Activate();
     }
 
-    protected void StartOneEnemy()
+    public void StartOneEnemy()
     {
         _pool.Get();
     }

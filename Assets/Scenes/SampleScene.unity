@@ -299,7 +299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 246101241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c64028c320a0cd4d8aeade5a5c1b701, type: 3}
+  m_Script: {fileID: 11500000, guid: bcb2a29ed31630b4ca0266abe55a6884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 6532874363162331606, guid: 48bcd9eb9d1cb9244a10ce930b4b37c2, type: 3}
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 385192032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14948e680cf62aa499006da4e4907905, type: 3}
+  m_Script: {fileID: 11500000, guid: bcb2a29ed31630b4ca0266abe55a6884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3187700506633360817, guid: cccde5096ee8e294f9167decbc68bbb8, type: 3}
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1117155103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931504420be3f2a4fa7efdd7ff7a6684, type: 3}
+  m_Script: {fileID: 11500000, guid: bcb2a29ed31630b4ca0266abe55a6884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 1740494736282899691, guid: 6b293520bc9cf0a42913ffdff778f806, type: 3}
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 1602042970}
   - component: {fileID: 1602042971}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
