@@ -11,7 +11,7 @@ public class EnemySelector : MonoBehaviour
     //public event Action SpawnGreen;
     //public event Action SpawnBlue;
 
-    private List<EnemySpawner> _spawner;
+    [SerializeField]private List<EnemySpawner> _spawner;
     private EnemySpawner _enemySpawner1;
     private EnemySpawner _enemySpawner2;
     private EnemySpawner _enemySpawner3;
