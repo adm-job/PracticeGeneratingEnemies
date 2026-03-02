@@ -11,7 +11,7 @@ public class EnemySelector : MonoBehaviour
     //public event Action SpawnGreen;
     //public event Action SpawnBlue;
 
-    private List<EnemySpawner> _spawned;
+    private List<EnemySpawner> _spawner;
     private EnemySpawner _enemySpawner1;
     private EnemySpawner _enemySpawner2;
     private EnemySpawner _enemySpawner3;
@@ -19,10 +19,14 @@ public class EnemySelector : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(StartCreation());
+        //_spawner.Add(_enemySpawner1);
+        //_spawner.Add(_enemySpawner2);
+        //_spawner.Add(_enemySpawner3);
+        EnemySpawner[] enemySpawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+        //_spawner.AddRange(enemySpawners);
+        _spawner = new List<EnemySpawner>(enemySpawners);
+        
         StartCoroutine(Creatings());
-        _spawned.Add(_enemySpawner1);
-        _spawned.Add(_enemySpawner2);
-        _spawned.Add(_enemySpawner3);
     }
 
     private IEnumerator Creatings()
@@ -31,9 +35,9 @@ public class EnemySelector : MonoBehaviour
         while (enabled)
         {
             yield return new WaitForSeconds(1);
-            _spawned[0].StartOneEnemy();
-            _spawned[1].StartOneEnemy();
-            _spawned[2].StartOneEnemy();
+            _spawner[0].StartOneEnemy();
+            _spawner[1].StartOneEnemy();
+            _spawner[2].StartOneEnemy();
         }
     }
 
