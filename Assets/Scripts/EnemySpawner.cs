@@ -26,15 +26,6 @@ public class EnemySpawner : MonoBehaviour
             );
     }
 
-    //protected virtual void OnEnable()
-    //{
-    //    _enemySelector.Generating += StartOneEnemy;
-    //}
-    //protected virtual void OnDisable()
-    //{
-    //    _enemySelector.Generating -= StartOneEnemy;
-    //}
-
     protected void ActivateEnemy(Enemy enemy)
     {
         enemy.Deading += DeactivateEnemy;
